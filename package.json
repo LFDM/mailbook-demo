@@ -1,0 +1,46 @@
+{
+  "name": "mailbook-demo",
+  "scripts": {
+    "lint": "tslint --project tsconfig.json",
+    "build": "tsc",
+    "test": "ts-jest",
+    "bd": "yarn deploy",
+    "debug": "node --inspect=9229 --require ts-node/register",
+    "mails:watch": "tsc -w --outDir dist --m CommonJs --target es2015 --resolveJsonModule --jsx react src/modules/mail/devServer.ts",
+    "mails:serve": "PORT=3106 nodemon dist/modules/mail/devServer.js",
+    "mailbook": "concurrently 'yarn mails:watch' 'yarn mails:serve' "
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "@mailbook/core": "^0.0.1-rc3",
+    "@sendgrid/client": "^6.4.0",
+    "@sendgrid/mail": "^6.3.1",
+    "assert-never": "^1.2.1",
+    "lodash": "4.17.18",
+    "mjml": "^4.4.0-beta.1",
+    "mjml-react": "^1.0.53",
+    "query-string": "^6.9.0",
+    "react": "^16.8.5",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.13",
+    "@types/lodash": "^4.14.138",
+    "@types/md5": "^2.1.33",
+    "@types/mjml-react": "^1.0.1",
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "^16.9.0",
+    "concurrently": "^5.2.0",
+    "jest": "^24.0.0",
+    "prettier": "^2.0.5",
+    "ts-jest": "^23.10.5",
+    "ts-node": "^8.0.2",
+    "tslint": "^6.1.0",
+    "typescript": "3.9.6"
+  },
+  "private": true,
+  "license": "UNLICENSED",
+  "engines": {
+    "node": "10"
+  }
+}
